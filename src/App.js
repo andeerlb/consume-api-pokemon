@@ -3,13 +3,22 @@ import './App.css';
 import api from './ApiPokemon';
 import { useEffect, useState } from 'react';
 
+function Photo ({ photoUrl }) {
+  return (
+    <div className='photoContainer'>
+      <img src={photoUrl} />
+    </div>
+  )
+}
 function Abilitie({ pokemon }) {
   const [abilities, setAbilities] = useState([]);
+  const [photo, setPhoto] = useState(null);
 
   const getPokemonInformationsFromApi = (urlApi) => {
     axios.get(urlApi)
       .then(request => {
         setAbilities(request.data.abilities);
+        setPhoto(request.data.sprites.other.home.front_default ? request.data.sprites.other.home.front_default : request.data.sprites.back_default);
       })
       .catch(function(error){
         console.error("deu erro: ",   error);
@@ -25,18 +34,21 @@ function Abilitie({ pokemon }) {
 
   return (
     <>
+      <Photo photoUrl={photo} />
       {
         abilities.length === 0 ? <div>Pokemon sem habilitades</div> 
       : 
-      abilities.map(abilitie => <div className="abilitieContainer">{abilitie.ability.name}</div>)
+      abilities.map(abilitie => {
+        return <>
+          <div className="abilitieContainer">{abilitie.ability.name}</div>
+        </>
+      })
     }
     </>
   )
 }
 
 function Pokemon({ pokemon }) {
-
-
   return (
     <div className="container_pokemon">
       {pokemon.name}

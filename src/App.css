@@ -19,3 +19,8 @@ body {
   padding: 10px;
   margin-bottom: 5px;
 }
+
+.photoContainer > img {
+  width: 80px;
+  height: 80px;
+}
