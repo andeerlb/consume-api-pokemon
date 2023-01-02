@@ -40,7 +40,7 @@ function Abilitie({ pokemon }) {
       : 
       abilities.map(abilitie => {
         return <>
-          <div className="abilitieContainer">{abilitie.ability.name}</div>
+          <div className="abilitieContainer">Habilidade: {abilitie.ability.name}</div>
         </>
       })
     }
