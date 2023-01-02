@@ -5,3 +5,17 @@
 
 body {
 }
+
+.container_pokemon {
+  width: auto;
+  height: auto;
+  padding: 20px 10px;
+  margin:auto;
+  border: 1px solid #eee;
+}
+
+.abilitieContainer {
+  background: #ccc;
+  padding: 10px;
+  margin-bottom: 5px;
+}
