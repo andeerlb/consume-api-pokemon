@@ -17,12 +17,6 @@ export default function GradeDePokemon() {
         const { data } = request;
         setPokemons(data.results);
       })
-      .catch(function(error){
-        console.error("deu erro: ",   error);
-      })
-      .finally(function(){
-        console.warn("finally lista de pokemons");
-      })
     }
 
     return (
